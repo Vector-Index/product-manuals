@@ -1,76 +1,59 @@
-# User Manual: Settings for Web-Based Terminal App
+# Web-Based Terminal App Settings Manual
 
-## Introduction
-Welcome to the settings manual for your web-based terminal application. This document will guide you through the various customizable options available in the settings menu, allowing you to personalize your terminal experience according to your preferences.
-
-## Settings Menu Overview
-The settings menu provides several options for adjusting the appearance and functionality of your terminal. Below, you'll find detailed descriptions and instructions for each setting.
+This manual provides detailed information on configuring and customizing the settings for your web-based terminal app. Each setting allows you to modify how the terminal behaves and appears, giving you control over the user experience.
 
 ### 1. Choose a Theme
-The "Choose a Theme" dropdown allows users to select different visual themes for their terminal interface. These themes are sourced from [Gogh](https://gogh-co.github.io/Gogh/), providing a variety of color schemes to enhance the look and feel of your terminal.
+This option allows you to select a visual theme for the terminal interface. Themes change the colors, styles, and overall look of the terminal.
 
-- **How to Use**: Click the dropdown to select a theme from the available options. Initially, no themes are available until you click "Add More Themes".
-- **Note**: Themes are pre-defined, and users cannot import custom themes directly. For more options, visit the Gogh website linked above.
+- **Available Themes**: The available themes are pre-defined and can be previewed at [Gogh Theme Previews](https://gogh-co.github.io/Gogh/).
+- **Loading Themes**: Themes will only be available in the dropdown after pressing the "Add More Themes" button, which fetches a list of themes from a `themes.json` file.
 
 ### 2. Add More Themes
-The "Add More Themes" button allows users to extend the available theme options by fetching them from an external source.
-
-- **How to Use**: Click this button to send an HTTP request that pulls themes from a remote `themes.json` file. Once fetched, the new themes will appear in the "Choose a Theme" dropdown.
-- **Note**: Without clicking this button, only the default theme will be available.
+Clicking this option will initiate an HTTP request to fetch the list of available themes from an external source. This list will populate the dropdown in the "Choose a Theme" option, allowing you to select different visual themes. Without clicking this button, only the default theme is available.
 
 ### 3. Font Size (px)
-The "Font Size" input box lets users adjust the font size across all elements of the terminal.
+The "Font Size" field allows you to adjust the font size of the entire terminal interface, including the input area, command prompts, and output text.
 
-- **How to Use**: Enter a value (in pixels) to change the font size for command inputs, outputs, and prompts. The default value is set to **14px**.
-- **Tip**: Larger font sizes may enhance readability, while smaller sizes allow more information to fit on the screen.
+- **Default Size**: The default font size is set to **14px**.
+- **Adjustable Range**: You can enter any pixel value to suit your preferences for readability and comfort.
 
 ### 4. Proxy
-The "Proxy" field is used to specify a CORS proxy URL for handling HTTP/HTTPS requests targeting API endpoints.
+This setting allows you to specify a proxy URL, which acts as a **CORS proxy** for HTTP/HTTPS requests targeting API endpoints. This is useful for routing certain types of requests.
 
-- **How to Use**: Enter the desired proxy URL to route network requests through it. This can help with privacy or bypassing CORS restrictions.
-- **Note**: You can optionally provide an API key if needed, but most pre-configured APIs do not require authentication.
+- **Usage**: Primarily used to bypass CORS limitations for API calls.
+- **Authentication**: An API key can be optionally provided, but it is generally not required. Most pre-configured APIs do not need authentication.
 
 ### 5. Prompt
-The "Prompt" input box allows users to set a static prompt string that appears in the terminal.
+The "Prompt" field allows you to customize the static text that appears as the terminal prompt. This prompt text remains constant throughout your session.
 
-- **How to Use**: Enter any static text to customize the prompt for the terminal. This text will appear before each command you type.
-- **Note**: Since this is a browser-based terminal, the prompt cannot include dynamic variables like the current directory or username.
+- **Customization**: Unlike traditional terminal prompts, this field is static as the app runs in a browser. It doesn't support dynamic placeholders such as current directory or username.
 
 ### 6. Color
-The "Color" dropdown allows users to change the color of output messages in the terminal.
+The "Color" option controls the color of the output text displayed in the terminal.
 
-- **How to Use**: Select one of the **8 available colors** from the dropdown to customize the appearance of command output text.
-- **Note**: This setting changes the color of output messages only, using special character sequences to achieve the effect.
+- **Usage**: Choose from **8 terminal-supported colors** to customize the visual appearance of output messages. This helps differentiate outputs and makes it easier to scan for important information.
 
 ### 7. Open Editor
-The "Open Editor" button opens a web-based editor for modifying the current terminal configuration.
+The "Open Editor" button launches a web-based code editor where you can view and modify the terminal's configuration.
 
-- **How to Use**: Click this button to access an integrated editor where you can adjust terminal settings or write custom JavaScript functions.
-- **Tip**: You can find common functions and examples at [GitHub - yuxiaoli/scripts](https://github.com/yuxiaoli/scripts/tree/main/src/js/terminal).
+- **Capabilities**: The editor allows you to adjust settings, write JavaScript functions, or customize the behavior of the terminal session.
+- **Scripting Support**: The terminal supports custom scripts and common functions, which you can explore in [this GitHub repository](https://github.com/yuxiaoli/scripts/tree/main/src/js/terminal). Additionally, two major modules are available for scripting:
+  - **[Fuse.js](https://www.fusejs.io/)**: For fuzzy searching.
+  - **[Cheerio](https://cheerio.js.org/docs/intro)**: For DOM manipulation.
 
 ### 8. Copy URL
-The "Copy URL" button generates a snapshot of the current terminal configuration and converts it into a shareable URL.
+Clicking the "Copy URL" button takes a snapshot of the current configuration settings and converts them into a shareable URL.
 
-- **How to Use**: Click the button to copy the URL to your clipboard. You can share this URL with others, allowing them to replicate your current setup.
-- **Note**: No special permissions are required to share the URL, as it does not involve session authentication.
+- **Purpose**: This is useful for saving or sharing your customized terminal configuration.
+- **No Authentication Required**: The generated URL can be shared without any authentication requirements.
 
 ### 9. Back
-The "Back" button is used to close the settings menu and return to the main terminal screen.
+Clicking the "Back" button closes the settings menu and returns you to the terminal interface.
 
-- **How to Use**: Click "Back" to exit the settings menu. Any changes made are saved dynamically, so there's no need to restart the terminal.
-- **Note**: Changes take effect immediately, without requiring a reload of the application.
+- **Saving Changes**: All changes made are saved dynamically, so no manual saving or reloading of the terminal is required.
+- **Effect of Changes**: Most settings take effect immediately without needing to refresh the page.
 
-## Tips for Optimal Use
-- **Font Size**: The default value of 14px is recommended for most users, but feel free to adjust it for comfort.
-- **Themes**: Click "Add More Themes" to explore and apply different color schemes to improve the terminal's aesthetic.
-- **Proxy**: Using a proxy can help bypass restrictions, but be cautious when entering URLs to ensure data safety.
+---
 
-## Troubleshooting
-- **Themes Not Showing**: Make sure to click "Add More Themes" to populate the theme dropdown.
-- **Font Size Not Changing**: Verify that the entered value is a positive integer.
-- **Settings Not Saving**: Changes are saved dynamically. If settings don't seem to update, try refreshing the browser.
+Feel free to experiment with these settings to personalize your terminal experience. If you have any further questions, please refer to the FAQ section or contact support for more help.
 
-## Conclusion
-The settings menu of your web-based terminal app offers a range of customization options to improve your experience. Experiment with different settings to find what works best for you. If you need further assistance, consult the tips or troubleshooting section above.
-
-Happy terminaling!
